@@ -121,7 +121,7 @@ class AccountKit
      *
      * @return string
      */
-    private function getAccessToken($code)
+    public function getAccessToken($code)
     {
         return $this->getData($code)->access_token;
     }

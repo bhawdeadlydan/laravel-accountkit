@@ -8,6 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace Ibonly\FacebookAccountKit;
 
 class FacebookAccountKit extends AccountKit
@@ -20,27 +21,8 @@ class FacebookAccountKit extends AccountKit
      */
     public function accountKitData($code)
     {
-        $data = $this->data($code);
-
-        $output = [
-            'id' => $data->id,
-            'phoneNumber' => '',
-            'email' => '',
-            'countryPrefix' => '',
-            'nationalNumber' => '',
-        ];
-
-        if (array_key_exists('phone', $data)) {
-            $output['phoneNumber'] = $data->phone->number ?? null;
-            $output['countryPrefix'] = $data->phone->country_prefix ?? null;
-            $output['nationalNumber'] = $data->phone->national_number ?? null;
-        }
-
-        if (array_key_exists('email', $data)) {
-            $output['email'] = $data->email->address ?? null;
-        }
-
-        return $output;
+        $access_token = $this->getAccessToken($code);
+        return $this->accountKitDataFromUserAccessToken($access_token);
     }
 
     public function accountKitDataFromUserAccessToken($access_code)
@@ -53,6 +35,7 @@ class FacebookAccountKit extends AccountKit
             'email' => '',
             'countryPrefix' => '',
             'nationalNumber' => '',
+            'access_code' => $access_code,
         ];
 
         if (array_key_exists('phone', $data)) {
