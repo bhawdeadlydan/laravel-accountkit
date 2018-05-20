@@ -138,6 +138,20 @@ class AccountKit
         return $this->meTokenUrl . '' . $this->getAccessToken($code);
     }
 
+
+    /**
+     * Set User Token Endpoint
+     *
+     * @param string $code
+     *
+     * @return string
+     */
+    public function meEndPointAccessCode($access_code)
+    {
+        return $this->getContentBody($this->meTokenUrl . '' . $access_code);
+    }
+
+
     /**
      * Get Returned Data
      *

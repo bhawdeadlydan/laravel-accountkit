@@ -38,4 +38,25 @@ class FacebookAccountKit extends AccountKit
 
         return $output;
     }
+
+    public function accountKitDataFromUserAccessToken($access_code)
+    {
+        $data = $this->meEndPointAccessCode($access_code);
+
+        $output = [
+            'id' => $data->id,
+            'phoneNumber' => '',
+            'email' => '',
+        ];
+
+        if (array_key_exists('phone', $data)) {
+            $output['phoneNumber'] = $data->phone->number ?? null;
+        }
+
+        if (array_key_exists('email', $data)) {
+            $output['email'] = $data->email->address ?? null;
+        }
+
+        return $output;
+    }
 }
