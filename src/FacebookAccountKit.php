@@ -26,10 +26,14 @@ class FacebookAccountKit extends AccountKit
             'id' => $data->id,
             'phoneNumber' => '',
             'email' => '',
+            'countryPrefix' => '',
+            'nationalNumber' => '',
         ];
 
         if (array_key_exists('phone', $data)) {
             $output['phoneNumber'] = $data->phone->number ?? null;
+            $output['countryPrefix'] = $data->phone->country_prefix ?? null;
+            $output['nationalNumber'] = $data->phone->national_number ?? null;
         }
 
         if (array_key_exists('email', $data)) {
@@ -47,10 +51,14 @@ class FacebookAccountKit extends AccountKit
             'id' => $data->id,
             'phoneNumber' => '',
             'email' => '',
+            'countryPrefix' => '',
+            'nationalNumber' => '',
         ];
 
         if (array_key_exists('phone', $data)) {
             $output['phoneNumber'] = $data->phone->number ?? null;
+            $output['countryPrefix'] = $data->phone->country_prefix ?? null;
+            $output['nationalNumber'] = $data->phone->national_number ?? null;
         }
 
         if (array_key_exists('email', $data)) {
