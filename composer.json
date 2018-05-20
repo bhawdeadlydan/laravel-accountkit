@@ -1,5 +1,5 @@
 {
-    "name": "ibonly/laravel-accountkit",
+    "name": "bhawdeadlydan/laravel-accountkit",
     "description": "Two factor authentication using facebook account kit",
     "keywords": ["php","github", "laravel", "facebook", "Open Source", "login", "register", "accountkit", "account kit", "facebook account kit", "laravel facebook account kit", "laravel-accountkit"],
     "license": "MIT",
@@ -12,6 +12,10 @@
         {
             "name": "Surajudeen Akande",
             "email": "surajudeen.akande@andela.com"
+        },
+        {
+            "name": "Bhawesh Kumar Singh",
+            "email": "bhawdeadlydan@gmail.com"
         }
     ],
     "autoload": {
